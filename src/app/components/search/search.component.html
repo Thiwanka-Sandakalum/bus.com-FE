@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div class="flex items-center justify-center w-full">
+    <div class="p-10">
+        <h2 class="text-center text-sky-700 uppercase text-xl font-bold mb-4">Search</h2>
+        <div class="grid grid-cols-4 gap-4">
+            <div>
+                <label class="block font-semibold mb-2">From:</label>
+                <select [(ngModel)]="selectedFrom" class="block w-full p-2 border rounded">
+                    <option value="" disabled>Select a city</option>
+                    <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+                  </select>
+            </div>
+            <div>
+                <label class="block font-semibold mb-2">To:</label>
+                <select [(ngModel)]="selectedTo" class="block w-full p-2 border rounded">
+                    <option value="" disabled>Select a city</option>
+                    <option *ngFor="let city of cities" [value]="city" [disabled]="city === selectedFrom">{{ city }}</option>
+                  </select>
+            </div>
+            <div>
+                <label class="block font-semibold mb-2">Date:</label>
+                <input type="date" [(ngModel)]="selectedDate" class="block w-full p-2 border rounded"
+                    [min]="currentDate">
+            </div>
+            <!-- Disable the button if any of the required fields is not selected -->
+            <button class="px-4 py-2 mt-8 rounded" [class.bg-gray-300]="!selectedFrom || !selectedTo || !selectedDate"
+                [class.bg-blue-500]="selectedFrom && selectedTo && selectedDate"
+                [disabled]="!selectedFrom || !selectedTo || !selectedDate" (click)="search()">
+                Search
+            </button>
+
+
+            <!-- Show a message if any of the required fields is not selected -->
+            <!-- <div *ngIf="(!selectedFrom || !selectedTo || !selectedDate)" class="text-red-500 mt-2">
+                    Please select all fields before submitting.
+                </div> -->
+        </div>
+    </div>
+</div>
+<app-table [inputData]="{data: tableData, date: selectedDate}"></app-table>

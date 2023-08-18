@@ -1,0 +1,53 @@
+<div class="bg-img flex h-screen items-center justify-center bg-cover bg-center md:bg-top">
+  <div class="  flexy  p-8 bg-black bg-opacity-50 md:w-96">
+    <!-- Use *ngIf to show/hide the forms based on the current mode -->
+    <form *ngIf="isLoginForm" [formGroup]="loginForm" (submit)="login()">
+      <h2 class="text-2xl font-semibold mb-6 text-white">Sign In</h2>
+      <div class="mb-4">
+        <label class="text-white" for="phone">Phone Number</label>
+        <input formControlName="phone_number" class="block w-full bg-gray-200 rounded px-3 py-2 mt-1" id="phone"
+          required maxlength="10">
+      </div>
+      <div class="mb-4">
+        <label class="text-white" for="password">Password</label>
+        <input formControlName="password" class="form-control">
+      </div>
+      <P class="text-red-400  mb-4">{{error_msg}}</P>
+      <button class="btn btn-primary btn-block">Sign In</button>
+      <p class="text-white mt-5">Don't have an account? <button (click)="toggleMode()">Register here</button></p>
+
+      <P class="text-red-400">{{message}}</P>
+    </form>
+
+    <form *ngIf="!isLoginForm" [formGroup]="registerForm" (submit)="register()">
+      <h2 class="text-2xl font-semibold mb-6 text-white">Registration</h2>
+      <div class="mb-4">
+        <label class="text-white" for="name">Name</label>
+        <input formControlName="name" class="block w-full bg-gray-200 rounded px-3 py-2 mt-1" id="name" required>
+      </div>
+      <div class="mb-4">
+        <label class="text-white" for="phone">Phone Number</label>
+        <input formControlName="phone_number" class="block w-full bg-gray-200 rounded px-3 py-2 mt-1" id="phone"
+          required maxlength="10">
+      </div>
+      <div class="mb-4">
+        <label class="text-white" for="password">Password</label>
+        <input formControlName="password" class="block w-full bg-gray-200 rounded px-3 py-2 mt-1" id="password"
+          required>
+      </div>
+      <div class="mb-4">
+        <label class="text-white" for="name">Role</label>
+        <select formControlName="role" class="block w-full bg-gray-200 rounded px-3 py-2 mt-1" id="Role" required>
+          <option value="customer">Customer</option>
+          <option value="driver">Driver</option>
+        </select>
+      </div>
+      <button class="btn btn-primary btn-block" [disabled]="!registerForm.valid">Register</button>
+      <p class="text-white mt-5">Already have an account? <button (click)="toggleMode()">Sign In</button></p>
+
+      <P class="text-red-400 mt-5">{{message}}</P>
+
+    </form>
+
+  </div>
+</div>

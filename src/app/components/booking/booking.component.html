@@ -1,0 +1,54 @@
+<div class="relative">
+    <app-navbar class=" top-0 left-0 right-0 z-50"></app-navbar>
+</div>
+<div class="bg-gray-100 min-h-screen p-8">
+    <h1 class="text-2xl font-semibold mb-6 text-center">Your Bookings</h1>
+    <div class="space-y-6">
+        <div></div>
+        <div x-show="bookings.length" x-cloak x-transition>
+            <table class="w-full  rounded-lg  border-collapse border border-slate-400">
+                <thead>
+                    <tr class="bg-slate-900 text-slate-400">
+                        <th class="px-4 py-2">From</th>
+                        <th class="px-4 py-2">To</th>
+                        <th class="px-4 py-2">Date</th>
+                        <th class="px-4 py-2">Time</th>
+                        <th class="px-4 py-2">Price (LKR)</th>
+                        <th class="px-4 py-2"></th>
+                        <th class="px-4 py-2"></th>                        
+                        <th class="px-4 py-2"></th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let booking of getCurrentPageBookings()" class="hover:bg-gray-50">
+
+                        <td class="px-4 py-2 text-base font-medium">{{ booking.Bus.from }}</td>
+                        <td class="px-4 py-2 text-base font-medium">{{ booking.Bus.to }}</td>
+                        <td class="px-4 py-2 text-base font-medium" [ngClass]="{ 'highlight-red': isToday(booking.booking_date) }">{{
+                            booking.booking_date }}</td>
+                        <td class="px-4 py-2 text-base font-medium">{{ booking.booking_time }}</td>
+                        <td class="px-4 py-2 text-base font-medium">{{ booking.amount_paid }}</td>
+                        <td class="px-4 py-2 text-base font-medium" *ngIf="shouldShowTrackButton(booking)">
+                            <button (click)="trackBooking(booking)" class="text-blue-500 hover:underline">Track</button>
+                        </td>
+                        <dt class="px-4 py-2"><button class="px-2 py-1 font-medium hover:text-white bg-slate-800 text-gray-500 rounded-md mr-2"
+                                (click)="downloadReceipt(booking)">Receipt</button>
+                        </dt>
+                        <td><button class="px-2 py-1 hover:bg-red-600 bg-red-500 text-white rounded-md mr-2" (click)="cancel_booking(booking)">Cancel</button></td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <div class="flex justify-center mt-4">
+            <button (click)="currentPage = currentPage - 1" [disabled]="currentPage === 1"
+                class="px-3 py-0 bg-slate-900 text-gray-500 rounded-md mr-2 hover:text-white">Previous</button>
+            <button (click)="currentPage = currentPage + 1" [disabled]="getCurrentPageBookings().length < itemsPerPage"
+                class="px-4 py-0 bg-slate-900 text-gray-500 rounded-md ml-2 hover:text-white">Next</button>
+        </div>
+        <ng-template #noBookings x-cloak x-transition>
+            <p class="text-gray-500 text-center">You haven't made any bookings yet.</p>
+        </ng-template>
+    </div>
+</div>

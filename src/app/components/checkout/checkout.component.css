@@ -1,0 +1,130 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(128, 128, 128, 0.75);
+  }
+  
+  .popup {
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 24rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    color: #a0aec0;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+  }
+  
+  .close-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  
+  .image-column {
+    display: none;
+  }
+  
+  .image {
+    width: 100%;
+    border-radius: 0.5rem;
+  }
+  
+  .details-column {
+    width: 100%;
+    margin-left: 0.25rem;
+  }
+  
+  .details {
+    margin-bottom: 1rem;
+  }
+  
+  .title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .fees {
+    color: #4a5568;
+  }
+  
+  .payment-method-label {
+    margin-top: 0.5rem;
+    color: #4a5568;
+    font-weight: bold;
+  }
+  
+  .payment-method-select {
+    margin-top: 0.25rem;
+    width: 100%;
+    border: 1px solid #d2d6dc;
+    border-radius: 0.25rem;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .duration {
+    color: #4a5568;
+  }
+  
+  .seat-count-label {
+    margin-top: 0.5rem;
+    color: #4a5568;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+  }
+  
+  .seat-count-text {
+    margin-right: 0.5rem;
+  }
+  
+  .increase-button,
+  .decrease-button {
+    background-color: #e53e3e;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+  }
+  
+  .decrease-button {
+    background-color: #3182ce;
+    margin-left: 0.5rem;
+  }
+  
+  .book-button {
+    margin-top: 1rem;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .book-button:hover {
+    background-color: #2779bd;
+  }
+  
