@@ -50,17 +50,17 @@ export class AuthComponent implements OnInit {
     this.apiService.login(data).subscribe(
       (res: { access_token: any; refresh_token: any }) => {
         const { access_token, refresh_token } = res;
-        
+
         localStorage.setItem('access_token', access_token);
         localStorage.setItem('refresh_token', refresh_token);
-
+        this.loginForm.reset();
         this.router.navigate(['search']);
       },
       (error: any) => {
         if (error.error.message) {
           this.error_msg = error.error.message;
           setTimeout(() => {
-            this.error_msg=''
+            this.error_msg = ''
           }, 5000);
         }
         else {
@@ -82,6 +82,7 @@ export class AuthComponent implements OnInit {
       () => {
         this.message = 'Registration successful!';
         this.isLoginForm = true;
+        this.registerForm.reset(); // Reset the form data
       },
       (error) => {
         console.error('Registration failed:', error);

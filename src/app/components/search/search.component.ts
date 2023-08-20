@@ -28,10 +28,10 @@ export class SearchComponent {
         });
   }
 
-  cities: string[] = ['Pettah', 'Fort', 'Maradana', 'Kollupitiya', 'Nugegoda', 'Maharagama', 'Rajagiriya', 'Battaramulla', 'Homagama', 'Gampaha',
-    'Kandy', 'Peradeniya', 'Hanthana', 'Katugastota', 'Matale', 'Kurunegala', 'Kegalle', 'Dambulla', 'Sigiriya', 'Habarana',
-    'Matara', 'Galle', 'Tangalle', 'Hikkaduwa', 'Mirissa', 'Weligama', 'Dickwella', 'Ambalangoda', 'Koggala',
-    'Jaffna', 'Kilinochchi', 'Vavuniya', 'Mannar', 'Mullaitivu', 'Trincomalee', 'Batticaloa', 'Ampara', 'Polonnaruwa'
+  cities: string[] = ['Ampara', 'Ambalangoda', 'Batticaloa', 'Battaramulla', 'Battaramulla', 'Dambulla', 'Dickwella', 'Galle', 'Gampaha', 'Gampaha',
+    'Galle', 'Habarana', 'Hanthana', 'Hikkaduwa', 'Homagama', 'Jaffna', 'Kandy', 'Katugastota', 'Kegalle', 'Kilinochchi',
+    'Koggala', 'Kollupitiya', 'Kurunegala', 'Mahanthegama', 'Maharagama', 'Mannar', 'Maradana', 'Matale', 'Matara', 'Matara',
+    'Mirissa', 'Mullaitivu', 'Nugegoda', 'Pettah', 'Polonnaruwa', 'Rajagiriya', 'Sigiriya', 'Tangalle', 'Trincomalee', 'Vavuniya', 'Weligama'
   ];
 
 

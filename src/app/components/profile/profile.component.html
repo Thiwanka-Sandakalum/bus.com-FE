@@ -1,21 +1,20 @@
 <div class="relative">
   <app-navbar class="absolute top-0 left-0 right-0 z-50"></app-navbar>
   <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-    <h1 class="text-3xl font-semibold mb-4">Profile</h1>
-
+    <h1 class="text-3xl font-semibold mb-4 text-center">Profile</h1>
 
     <div class="w-full sm:max-w-md bg-white rounded-lg shadow-md p-6">
-
-      <p class="text-red-700 text-center font-extrabold">{{message}}</p>
+      <p class="text-red-700 text-center font-extrabold">{{ message }}</p>
       <div class="mb-4">
-        <label for="name" class="block text-base font-medium text-gray-700">Name : </label>
-        <p class="mt-1 text-md text-base text-gray-800 text-transform: uppercase;" id="name">{{ name }}</p>
+        <label for="name" class="block text-base font-medium text-gray-700">Name:</label>
+        <p class="mt-1 text-md text-base text-gray-800 text-center sm:text-left" id="name">{{ name }}</p>
       </div>
 
       <div class="mb-4">
-        <label for="phoneNumber" class="block text-base font-medium text-gray-700">Phone Number : </label>
+        <label for="phoneNumber" class="block text-base font-medium text-gray-700">Phone Number:</label>
         <div class="flex items-center">
           <p class="mt-1 text-md text-base text-gray-800" id="phoneNumber">{{ phone_number }}</p>
+          <!-- Edit button and input fields if needed -->
           <!-- <button class="text-indigo-600 hover:underline text-xs ml-2" (click)="editPhoneNumber = true"
             *ngIf="!editPhoneNumber">
             Edit
@@ -29,19 +28,18 @@
             (click)="savePhoneNumber()" [disabled]="newPhoneNumber.length !== 10">
             Save
           </button> -->
-
-
         </div>
       </div>
 
       <div class="mb-4">
         <label for="password" class="block text-base font-medium text-gray-700">
-          Change Password :
+          Change Password:
           <button class="text-indigo-600 hover:underline ml-2 text-base font-medium" (click)="editPassword = true">
             Edit
           </button>
         </label>
         <div *ngIf="editPassword">
+          <!-- Input fields for changing password -->
           <input id="oldPassword" class="w-full px-3 py-2 mb-2 border rounded" placeholder="Previous Password"
             [(ngModel)]="oldPassword" />
           <p class="text-red-700 text-center font-extrabold">{{err}}</p>
@@ -53,8 +51,10 @@
         </div>
       </div>
 
-      <div class="flex justify-between">
-        <button class="py-2 px-4 bg-red-500 text-white rounded hover:bg-red-600" (click)="removeAccount()">Remove Profile</button>
+      <div class="flex justify-center sm:justify-between">
+        <button class="py-2 px-4 bg-red-500 text-white rounded hover:bg-red-600 mt-4 sm:mt-0" (click)="removeAccount()">
+          Remove Profile
+        </button>
       </div>
     </div>
   </div>

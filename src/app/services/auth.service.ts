@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-  private refreshUrl = 'http://localhost:3000/user/token'; // Replace with the backend refresh endpoint
+  private refreshUrl = 'https://drop-me-api.onrender.com/user/token'; // Replace with the backend refresh endpoint
 
   constructor(
     private http: HttpClient,
