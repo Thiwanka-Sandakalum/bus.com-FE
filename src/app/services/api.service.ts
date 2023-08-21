@@ -7,7 +7,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://drop-me-api.onrender.com';
+  private apiUrl = 'https://bus-com-api.onrender.com';
 
   constructor(private http: HttpClient) { }
 
