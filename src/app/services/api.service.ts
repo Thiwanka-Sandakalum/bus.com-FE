@@ -2,12 +2,13 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl = 'https://bus-com-api.onrender.com';
+  private apiUrl='http://localhost:3000';
 
   constructor(private http: HttpClient) { }
 
@@ -73,11 +74,12 @@ export class ApiService {
 
 
   // seach buses
-  searchResults(from: string, to: string, available_dates: string): Observable<any> {
+  searchResults(from: string, to: string, available_dates: string,date:string): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/user/search`, {
       from,
       to,
-      available_dates
+      available_dates,
+      date
     }).pipe(
       catchError(error => {
         this.handleApiError(error);

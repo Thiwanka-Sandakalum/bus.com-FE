@@ -19,7 +19,7 @@ export class SearchComponent {
   constructor(private apiService: ApiService) { }
 
   search(): void {
-    this.apiService.searchResults(this.selectedFrom, this.selectedTo, this.calculateDayOfWeek())
+    this.apiService.searchResults(this.selectedFrom, this.selectedTo, this.calculateDayOfWeek(),this.calculateDay())
       .subscribe((data) => {
         this.tableData = data;
       },
@@ -52,9 +52,25 @@ export class SearchComponent {
 
     const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     const dateObject = new Date(this.selectedDate);
+    console.log(dateObject)
     const dayOfWeekIndex = dateObject.getDay();
     return daysOfWeek[dayOfWeekIndex];
   }
+
+  calculateDay(): string {
+    if (!this.selectedDate) {
+        return ''; // Return an empty string if no date is selected
+    }
+
+    const dateObject = new Date(this.selectedDate);
+    const year = dateObject.getFullYear();
+    const month = String(dateObject.getMonth() + 1).padStart(2, '0'); // Month is 0-indexed
+    const day = String(dateObject.getDate()).padStart(2, '0');
+
+    const formattedDate = `${year}-${month}-${day}`;
+    console.log(formattedDate,dateObject);
+    return formattedDate;
+}
 
 
 }
