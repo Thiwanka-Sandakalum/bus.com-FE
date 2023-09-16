@@ -8,7 +8,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ApiService {
-  private apiUrl='http://localhost:3000';
+  // private apiUrl='http://localhost:3000';
+  
+  private apiUrl='https://bus-com-api.onrender.com';
 
   constructor(private http: HttpClient) { }
 
